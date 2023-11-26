@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../design/search_input.dart';
+
+import '../../core/design/search_input.dart';
 
 class CategoriesView extends StatefulWidget {
   const CategoriesView({super.key});
@@ -12,17 +13,17 @@ class CategoriesView extends StatefulWidget {
 class _CategoriesViewState extends State<CategoriesView> {
   int selectedIndex = 0;
 
+  List<String> titles = [
+    "Baby",
+    "Toddler",
+    "Kids",
+    "Toys",
+    "Maternity",
+    "Gifts",
+  ];
+
   @override
   Widget build(BuildContext context) {
-    List<String> titles = [
-      "Baby",
-      "Toddler",
-      "Kids",
-      "Toys",
-      "Maternity",
-      "Gifts",
-    ];
-
     return Scaffold(
       backgroundColor: Colors.grey.withOpacity(0.1),
       appBar: AppBar(
