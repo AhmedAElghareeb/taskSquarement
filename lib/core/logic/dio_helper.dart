@@ -33,7 +33,7 @@ class DioHelper {
         return CustomResponse(
           success: true,
           statusCode: 200,
-          msg: (response.data["message"] ?? "Your request completed successfully").toString(),
+          msg: "",
           response: response,
         );
       } else {

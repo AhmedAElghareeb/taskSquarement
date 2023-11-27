@@ -1,10 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_squarement/features/categories/model.dart';
 import 'package:task_squarement/features/categories/states.dart';
 
-import '../../core/logic/server_gate.dart';
+import '../../core/logic/dio_helper.dart';
 
-class CategoriesCubit extends Cubit<CategoriesStates> {
-  CategoriesCubit() : super(CategoriesStates());
+class CategoriesCubit extends Cubit<UsersStates> {
+  CategoriesCubit() : super(UsersStates());
 
   Future<void> getData() async {
     emit(
@@ -16,9 +17,11 @@ class CategoriesCubit extends Cubit<CategoriesStates> {
     );
 
     if (response.success) {
-      print(response.response!.data);
+      final data = PhotosData.fromJson(response.response!.data).data;
       emit(
-        GetCategoriesDataSuccessState(),
+        GetCategoriesDataSuccessState(
+          data: data,
+        ),
       );
     } else {
       emit(

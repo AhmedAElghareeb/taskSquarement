@@ -1,7 +1,13 @@
-class CategoriesStates {}
+import 'model.dart';
 
-class GetCategoriesDataLoadingState extends CategoriesStates {}
+class UsersStates {}
 
-class GetCategoriesDataSuccessState extends CategoriesStates {}
+class GetCategoriesDataLoadingState extends UsersStates {}
 
-class GetCategoriesDataFailedState extends CategoriesStates {}
+class GetCategoriesDataSuccessState extends UsersStates {
+  final List<PhotosModel> data;
+
+  GetCategoriesDataSuccessState({required this.data});
+}
+
+class GetCategoriesDataFailedState extends UsersStates {}
